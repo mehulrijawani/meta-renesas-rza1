@@ -1,0 +1,2 @@
+to successfully compile please run
+sudo apt-get install libdirectfb-dev

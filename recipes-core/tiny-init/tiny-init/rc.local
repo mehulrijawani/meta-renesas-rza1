@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Start services and customize the boot process here.
+echo "Running /etc/rc.local..."
+
+# read only rootfs hook
+mount /var/volatile
+mkdir -p /var/volatile/home
+mkdir -p /var/volatile/lib
+mkdir -p /var/volatile/run
+mkdir -p /var/volatile/tmp
+cp -a /var/lib/* /var/volatile/lib
+mount --bind /var/volatile/home /home/root
+mount --bind /var/volatile/lib /var/lib
+mount --bind /var/volatile/run /run
+mount --bind /var/volatile/tmp /tmp
+
+export HOME=/home/root
+
+# mount swap
+#swapon /dev/sda3
+
+# configure eth0
+#ifconfig eth0 hw ether 00:11:22:33:44:55
+ifconfig eth0 192.168.84.170 up
+
+# limit stack size
+ulimit -s 1024
+
+# check for framebuffer and start DirectFB demo
+if [ -e "/sys/class/graphics/fb0" ]; then
+  echo "Starting DirectFB demo..."
+  dfb3d --obj3d /usr/share/directfb-examples/3d/coke.obj &
+fi
+
+# start webserver
+/etc/init.d/thttpd start
+
+# Use init scripts included with packages such as dropbear
+/etc/init.d/dropbear start
+
+# Spawn a getty manually
+#setsid /sbin/getty 115200 ttyS2
+
+# Print a banner
+#echo "You are running a poky-tiny image brought to you by the Yocto Project."
+
+# Setup a debugging environment
+#mkdir /debugfs
+#mount none -t debugfs /debugfs
+
+# Load modules (note: linux-yocto-tiny does not have module support by default)
+#modprobe yourdriver
+
+# DO NOT run any long running tasks or loops as these will delay
+# the /init script and the console shell.

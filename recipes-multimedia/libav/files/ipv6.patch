@@ -1,0 +1,13 @@
+--- old/libavformat/udp.c	2014-09-10 22:09:51.000000000 +0200
++++ new/libavformat/udp.c	2015-03-09 11:46:04.218235024 +0100
+@@ -36,8 +36,8 @@
+ #include "url.h"
+ 
+ #ifndef IPV6_ADD_MEMBERSHIP
+-#define IPV6_ADD_MEMBERSHIP IPV6_JOIN_GROUP
+-#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP
++#define IPV6_ADD_MEMBERSHIP 20
++#define IPV6_DROP_MEMBERSHIP 21
+ #endif
+ 
+ typedef struct {
