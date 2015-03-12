@@ -7,6 +7,8 @@ include conf/machine/include/soc-family.inc
 
 SOC_FAMILY = "rza1"
 
+MACHINE_FEATURES = "usbgadget usbhost vfat touchscreen"
+
 PREFERRED_PROVIDER_virtual/kernel ??= "linux-rza1"
 PREFERRED_PROVIDER_u-boot ??= "u-boot-rza1"
 PREFERRED_PROVIDER_jpeg ??= "libjpeg-turbo"
