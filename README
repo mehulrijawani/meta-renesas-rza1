@@ -7,18 +7,18 @@ OpenEmbedded and/or Yocto.
 This layer depends on:
 
 URI: git://git.yoctoproject.org/poky
-branch: master
+branch: dizzy
 revision: HEAD
 
 URI: git://git.openembedded.org/meta-openembedded
-branch: master
+branch: dizzy
 revision: HEAD
 
 Contributing
 ------------
 
 To contribute to this layer you should submit the patches for review to the
-mail balto@phoenixsoftware.it.
+following email address: chris.brandt@renesas.com
 
 Please refer to:
 https://wiki.yoctoproject.org/wiki/Contribution_Guidelines#General_Information
@@ -27,13 +27,12 @@ for some useful guidelines to be followed when submitting patches.
 
 Source code:
 
-    https://github.com/baltoboard/meta-rza1
+    https://github.com/renesas-rz/meta-renesas-rza1
 
-When creating patches, please use something like:
+When creating a patch of the last commit, use
 
-    git format-patch -s --subject-prefix='meta-rza1][PATCH' origin
+    git format-patch -s --subject-prefix='meta-renesas-rza1][PATCH' -1
 
-When sending patches, please use something like:
+To send it to the community, use
 
-    git send-email --to balto@phoenixsoftware.it <generated patch>
-
+    git send-email --to chris.brandt@renesas.com <generated patch>
