@@ -16,6 +16,7 @@ mount --bind /var/volatile/run /run
 mount --bind /var/volatile/tmp /tmp
 
 export HOME=/home/root
+export QWS_MOUSE_PROTO=tslib:/dev/input/event0
 
 # mount swap
 #swapon /dev/sda3
@@ -29,8 +30,13 @@ ulimit -s 1024
 
 # check for framebuffer and start DirectFB demo
 if [ -e "/sys/class/graphics/fb0" ]; then
-  echo "Starting DirectFB demo..."
-  dfb3d --obj3d /usr/share/directfb-examples/3d/coke.obj &
+  if [ -e "/usr/bin/qtgameE" ]; then
+    echo "Starting QT4 game demo..."
+    qtgameE -noframe -noquit -qws &
+  else
+    echo "Starting DirectFB 3D demo..."
+    dfb3d --obj3d /usr/share/directfb-examples/3d/coke.obj &
+  fi
 fi
 
 # start webserver
