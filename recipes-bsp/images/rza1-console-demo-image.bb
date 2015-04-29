@@ -5,7 +5,7 @@ IMAGE_FEATURES += "ssh-server-dropbear"
 
 inherit core-image
 
-IMAGE_FSTYPES += "tar.bz2"
+IMAGE_FSTYPES += "tar.bz2 squashfs"
 
 IMAGE_INSTALL = "\
 	evtest \
