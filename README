@@ -7,11 +7,11 @@ OpenEmbedded and/or Yocto.
 This layer depends on:
 
 URI: git://git.yoctoproject.org/poky
-branch: dizzy
+branch: fido
 revision: HEAD
 
 URI: git://git.openembedded.org/meta-openembedded
-branch: dizzy
+branch: fido
 revision: HEAD
 
 Contributing
