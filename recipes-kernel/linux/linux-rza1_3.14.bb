@@ -14,7 +14,7 @@ PROVIDES += "virtual/kernel"
 PV = "3.14+git${SRCPV}"
 
 SRCBRANCH = "master"
-SRCREV = "82b0ced6b66ae35e2bacb85c753b54ab30645b0f"
+SRCREV = "bed571e3dd17e2eb449ad4b971568e0eec2590b2"
 SRC_URI = "git://github.com/renesas-rz/linux-3.14.git;branch=${SRCBRANCH} \
            file://defconfig"
 
